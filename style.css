@@ -834,7 +834,7 @@ details p {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 40px 30px 50px;
+  padding: 78px 30px 50px;
   background: #fff;
 }
 .category-header {
@@ -2772,3 +2772,145 @@ header.menu-open .menu-btn .ic-close {
 @media (prefers-reduced-motion: reduce) {
   .marq .track { animation: none; }
 }
+
+
+
+
+.rv-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.rv-viewport {
+  --rv-gap: 20px;
+  --rv-per: 3; /* desktop: 3 cards */
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  gap: var(--rv-gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 10px 4px 22px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.rv-viewport::-webkit-scrollbar { display: none; }
+
+.rv-card {
+  position: relative;
+  flex: 0 0 calc((100% - (var(--rv-per) - 1) * var(--rv-gap)) / var(--rv-per));
+  scroll-snap-align: start;
+  background: #fff;
+  border: 1px solid #e3eaf6;
+  border-radius: 20px;
+  padding: 28px 26px 24px;
+  box-shadow: 0 10px 30px rgba(43, 143, 224, 0.10);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.rv-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(43, 143, 224, 0.18); }
+
+.rv-quote {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  font-size: 34px;
+  color: #dbe8fb;
+}
+.rv-stars { color: #f5b301; font-size: 15px; letter-spacing: 2px; margin-bottom: 14px; }
+.rv-card p {
+  flex: 1;
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #3d4d70;
+}
+.rv-user { display: flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid #edf2fb; }
+.rv-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #5cd0f5, #5a2ed0);
+}
+.rv-user b { display: block; font-size: 15px; color: #1d2b4f; }
+.rv-user small { color: #6b7fa8; font-size: 13px; }
+
+.rv-arrow {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid #e3eaf6;
+  background: #fff;
+  color: #2b8fe0;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(43, 143, 224, 0.12);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.rv-arrow:hover { background: linear-gradient(135deg, #2b8fe0, #5a2ed0); color: #fff; transform: scale(1.06); }
+
+.rv-dots { display: flex; justify-content: center; gap: 8px; margin: 4px 0 26px; }
+.rv-dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #cfdcf2;
+  cursor: pointer;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+.rv-dots button.on { width: 26px; background: linear-gradient(90deg, #2b8fe0, #5a2ed0); }
+
+@media (max-width: 1024px) { .rv-viewport { --rv-per: 2; } }
+@media (max-width: 720px) {
+  .rv-viewport { --rv-per: 1; }
+  .rv-arrow { display: none; } /* mobile pe swipe se chalega */
+  .rv-slider { margin-top: 24px; }
+}
+
+
+
+
+
+
+.review-slider{position:relative;display:flex;align-items:center;gap:10px}
+.review-viewport{overflow:hidden;flex:1;padding:10px 0 14px}
+.review-track{display:flex;transition:transform .5s ease;will-change:transform}
+.review-slide{flex:0 0 33.3333%;padding:0 10px;box-sizing:border-box}
+.review-slide .review-card{height:100%;box-sizing:border-box}
+
+/* Tablet: 2 cards */
+@media (max-width:1023px){.review-slide{flex-basis:50%}}
+/* Mobile: 1 card */
+@media (max-width:639px){.review-slide{flex-basis:100%}}
+
+.rv-arrow{flex:0 0 auto;width:42px;height:42px;border-radius:50%;border:1px solid #d9d9e3;background:#fff;color:#333;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.08);transition:.2s}
+.rv-arrow:hover{background:#4b3fd1;color:#fff;border-color:#4b3fd1} /* apni brand color daal lena */
+.rv-arrow:disabled{opacity:.4;cursor:default}
+@media (max-width:639px){.rv-arrow{display:none}} /* mobile pe swipe se chalega */
+
+.rv-dots{display:flex;justify-content:center;gap:8px;margin:6px 0 22px}
+.rv-dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:#cfcfda;cursor:pointer;transition:.25s}
+.rv-dots button.active{background:#4b3fd1;width:24px;border-radius:6px}
+
+
+
+
+
+
+
+
+
+/* fq sections css */

@@ -224,3 +224,81 @@
           });
         });
       })();
+
+
+
+
+
+(function () {
+  var slider = document.querySelector('.review-slider');
+  if (!slider) return;
+  var track = slider.querySelector('.review-track');
+  var slides = slider.querySelectorAll('.review-slide');
+  var prev = slider.querySelector('.rv-prev');
+  var next = slider.querySelector('.rv-next');
+  var dotsBox = document.querySelector('.rv-dots');
+  var index = 0, perView = 3, timer;
+
+  function getPerView() {
+    var w = window.innerWidth;
+    return w >= 1024 ? 3 : (w >= 640 ? 2 : 1);
+  }
+  function maxIndex() { return Math.max(0, slides.length - perView); }
+
+  function buildDots() {
+    dotsBox.innerHTML = '';
+    for (var i = 0; i <= maxIndex(); i++) {
+      var b = document.createElement('button');
+      b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      (function (n) { b.addEventListener('click', function () { go(n); restart(); }); })(i);
+      dotsBox.appendChild(b);
+    }
+  }
+
+  function go(i) {
+    index = Math.min(Math.max(i, 0), maxIndex());
+    track.style.transform = 'translateX(-' + (index * (100 / perView)) + '%)';
+    var dots = dotsBox.children;
+    for (var d = 0; d < dots.length; d++) dots[d].classList.toggle('active', d === index);
+    prev.disabled = index === 0;
+    next.disabled = index === maxIndex();
+  }
+
+  function auto() { go(index >= maxIndex() ? 0 : index + 1); }
+  function start() { timer = setInterval(auto, 4500); }
+  function restart() { clearInterval(timer); start(); }
+
+  prev.addEventListener('click', function () { go(index - 1); restart(); });
+  next.addEventListener('click', function () { go(index + 1); restart(); });
+
+  // Swipe (mobile/tablet)
+  var startX = 0, dx = 0;
+  track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; dx = 0; }, { passive: true });
+  track.addEventListener('touchmove', function (e) { dx = e.touches[0].clientX - startX; }, { passive: true });
+  track.addEventListener('touchend', function () {
+    if (Math.abs(dx) > 50) { go(dx < 0 ? index + 1 : index - 1); restart(); }
+  });
+
+  // Hover pe autoplay ruk jaye
+  slider.addEventListener('mouseenter', function () { clearInterval(timer); });
+  slider.addEventListener('mouseleave', start);
+
+  window.addEventListener('resize', function () {
+    var p = getPerView();
+    if (p !== perView) { perView = p; buildDots(); go(index); }
+  });
+
+  perView = getPerView();
+  buildDots();
+  go(0);
+  start();
+})();
+
+
+
+
+      
+
+
+
+      
