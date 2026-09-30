@@ -64,7 +64,7 @@ header .wrap.nav {
 header {
   position: sticky;
   top: env(safe-area-inset-top, 0px);
-  z-index: 99999;
+  z-index: 100;
   width: 100%;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
@@ -560,58 +560,40 @@ h2 {
   grid-template-columns: 1.4fr 1fr;
   gap: 16px;
 }
-.vid {
-  border-radius: 26px;
-  min-height: 340px;
-  border: 1px solid var(--line);
-  font-size: 64px;
-}
-.vid video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.vid .play {
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  background: var(--grad);
-  display: grid;
-  place-items: center;
-  font-size: 30px;
-  color: #062033;
-  box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4);
-}
-.vid .play i,
-.vid .play svg {
-  color: #062033;
-  margin-left: 4px;
-}
 .gal {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
-.gal .slot {
-  border-radius: 22px;
+.gal .gal-item {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
   min-height: 162px;
   border: 1px solid var(--line);
-  font-size: 44px;
+  border-radius: 22px;
+  background: var(--s2) center/cover no-repeat;
+}
+.gal .gal-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
 }
 
-
-
+/* Showroom video */
 .video-box {
   position: relative;
   overflow: hidden;
-  border-radius: 26px;
-  min-height: 340px;
-  border: 1px solid var(--line);
-  background: #0b1a33;
   display: grid;
   place-items: center;
+  min-height: 340px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: #0b1a33;
 }
 .video-box video {
   position: absolute;
@@ -625,19 +607,24 @@ h2 {
   z-index: 2;
   width: 84px;
   height: 84px;
-  border-radius: 50%;
-  background: var(--grad);
   display: grid;
   place-items: center;
-  font-size: 30px;
+  border-radius: 50%;
+  background: var(--grad);
   color: #062033;
+  font-size: 30px;
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(14, 165, 233, 0.4);
+  transition: transform 0.25s;
 }
-
-
-
-
+.video-box .play:hover {
+  transform: scale(1.08);
+}
+.video-box .play i,
+.video-box .play svg {
+  margin-left: 4px;
+  color: #062033;
+}
 @media (max-width: 860px) {
   .show {
     grid-template-columns: 1fr;
@@ -798,15 +785,7 @@ details p {
   font-size: 14px;
 }
 
-/* Footer + mobile bar */
-footer {
-  border-top: 1px solid var(--line);
-  background: #f5f9fe;
-  text-align: center;
-  padding: 26px 20px 90px;
-  color: var(--mute);
-  font-size: 13px;
-}
+/* Mobile bar */
 .bar {
   display: none;
 }
@@ -1797,24 +1776,7 @@ footer {
 }
 
 
-/* add video */
-
-.vid .play {
-  position: relative;
-  z-index: 2;
-  cursor: pointer;
-}
-
-
-
-
-
-
-
-/* =========================================================
-   NEW SECTIONS: SERVICES + REVIEWS
-   style.css ke sabse neeche paste karo
-========================================================= */
+/* ---------- New sections: services + reviews ---------- */
 
 .head.center {
   text-align: center;
@@ -1995,15 +1957,7 @@ footer {
 }
 
 
-
-
-
-
-/* =========================================================
-   FOOTER
-   style.css me purana `footer { ... }` rule hata do (ya rehne do,
-   ye rules usse override kar dete hain). Ye block sabse neeche paste karo.
-========================================================= */
+/* ---------- Footer ---------- */
 
 .site-footer {
   background: linear-gradient(180deg, #0b1a33 0%, #071226 100%);
@@ -2014,7 +1968,7 @@ footer {
   font-size: 14px;
 }
 
-.footer-top {
+.site-footer .footer-top {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
   gap: 44px;
@@ -2141,7 +2095,7 @@ footer {
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-.footer-bottom-in {
+.site-footer .footer-bottom-in {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2171,7 +2125,7 @@ footer {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1000px) {
-  .footer-top {
+  .site-footer .footer-top {
     grid-template-columns: 1fr 1fr;
     gap: 36px;
     padding-top: 52px;
@@ -2190,15 +2144,483 @@ footer {
   }
 }
 @media (max-width: 600px) {
-  .footer-top {
+  .site-footer .footer-top {
     grid-template-columns: 1fr;
     gap: 30px;
     padding-top: 44px;
     padding-bottom: 32px;
   }
-  .footer-bottom-in {
+  .site-footer .footer-bottom-in {
     flex-direction: column;
     text-align: center;
     gap: 14px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — Desktop (1101+) | Tablet (601-1100) | Mobile (<=600)
+   Ye block sabse neeche rahe, taaki upar ke rules override ho sakein
+========================================================= */
+img,
+video,
+svg {
+  max-width: 100%;
+}
+.menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 18px;
+  cursor: pointer;
+}
+.menu-btn .ic-close {
+  display: none;
+}
+header.menu-open .menu-btn .ic-open {
+  display: none;
+}
+header.menu-open .menu-btn .ic-close {
+  display: inline;
+}
+
+/* ---------- Large desktop ---------- */
+@media (min-width: 1600px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+/* ---------- Small laptop / tablet landscape (<=1100px) ---------- */
+@media (max-width: 1100px) {
+  section {
+    padding: 64px 0;
+  }
+  header .wrap.nav {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .navlinks > li > a {
+    padding: 10px;
+  }
+  .brands-section {
+    padding: 60px 24px;
+  }
+  .showroom {
+    padding: 48px 24px;
+  }
+  .product-grid {
+    gap: 18px;
+  }
+  .category-grid .product-card p {
+    font-size: 9.5px;
+  }
+  .wide-card p {
+    font-size: 9px;
+  }
+}
+
+/* ---------- Tablet portrait (<=860px): hamburger menu ---------- */
+@media (max-width: 860px) {
+  .nav {
+    gap: 10px;
+  }
+  .nav > .btn {
+    margin-left: auto;
+  }
+  .menu-btn {
+    display: inline-flex;
+  }
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 12px 16px 18px;
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 20px 40px rgba(16, 28, 76, 0.14);
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+  header.menu-open .navlinks {
+    display: flex;
+  }
+  .navlinks > li > a {
+    padding: 14px 12px;
+    font-size: 16px;
+    color: var(--ink);
+  }
+  .navlinks .drop,
+  .navlinks .car {
+    display: none !important;
+  }
+
+  .slider {
+    height: 600px;
+  }
+  section {
+    padding: 56px 0;
+  }
+  .head {
+    margin-bottom: 28px;
+  }
+  .stats {
+    padding: 34px 20px;
+  }
+  .video-box {
+    min-height: 260px;
+  }
+  .brands-head p {
+    font-size: 15px;
+  }
+
+  /* Category cards: bade fonts + wide cards ko height flexible */
+  .category-grid .product-card h3 {
+    font-size: 15px;
+  }
+  .category-grid .product-card p {
+    font-size: 10.5px;
+  }
+  .featured-card p {
+    font-size: 11px;
+    max-width: 300px;
+  }
+  .featured-card h2 {
+    font-size: 26px;
+  }
+  .explore-btn {
+    font-size: 11px;
+  }
+  .product-card .explore-link,
+  .wide-card .explore-link {
+    font-size: 10.5px;
+  }
+  .category-grid .wide-card {
+    height: auto;
+    min-height: 175px;
+  }
+  .wide-card h3 {
+    font-size: 15px;
+  }
+  .wide-card p {
+    font-size: 10.5px;
+  }
+  .category-icon {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* ---------- Mobile (<=600px) ---------- */
+@media (max-width: 600px) {
+  .wrap {
+    padding: 0 16px;
+  }
+  header .wrap.nav {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .nav {
+    height: 60px;
+  }
+  .nav > .btn {
+    display: none;
+  }
+  .menu-btn {
+    margin-left: auto;
+  }
+  .logo {
+    font-size: 10px;
+  }
+  .logo svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Hero */
+  .slider {
+    height: 540px;
+    min-height: 500px;
+  }
+  .slide h1 {
+    font-size: clamp(32px, 9.5vw, 44px);
+    letter-spacing: -1px;
+    line-height: 1.08;
+  }
+  .slide p {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+  .pill {
+    font-size: 12px;
+    padding: 6px 14px;
+    margin-bottom: 16px;
+  }
+  .slide .cta .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  .sdots {
+    bottom: 84px;
+  }
+
+  /* Marquee + stats */
+  .track {
+    font-size: 18px;
+    gap: 36px;
+  }
+  .stats {
+    padding: 28px 16px;
+    gap: 12px;
+  }
+  .stats span {
+    font-size: 12px;
+  }
+
+  /* Generic */
+  section {
+    padding: 44px 0;
+  }
+  h2 {
+    font-size: clamp(26px, 8vw, 34px);
+  }
+  .step {
+    padding: 20px;
+  }
+  .step b {
+    font-size: 36px;
+  }
+  .steps {
+    grid-template-columns: 1fr 1fr;
+  }
+  .video-box {
+    min-height: 210px;
+    border-radius: 20px;
+  }
+  .video-box .play {
+    width: 62px;
+    height: 62px;
+    font-size: 22px;
+  }
+  .gal {
+    gap: 10px;
+  }
+  .gal .gal-item {
+    min-height: 120px;
+    border-radius: 16px;
+  }
+  .enq p.l {
+    font-size: 15px;
+  }
+  .fm {
+    padding: 18px;
+    border-radius: 20px;
+  }
+  details {
+    padding: 14px 16px;
+    border-radius: 14px;
+  }
+  summary {
+    font-size: 15px;
+  }
+  .loc {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+  .loc h3 {
+    font-size: 21px;
+  }
+  .loc .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .c1,
+  .c2 {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+  .c1 .btn {
+    width: 100%;
+    justify-content: center;
+    margin: 0 0 10px;
+  }
+  .row em {
+    width: 38px;
+    height: 38px;
+    font-size: 16px;
+  }
+
+  /* Category section */
+  .category-grid .product-card {
+    height: 230px;
+    min-height: 230px;
+  }
+  .category-grid .wide-card {
+    min-height: 190px;
+  }
+  .featured-card .card-content {
+    width: 58%;
+  }
+  .featured-card h2 {
+    font-size: 24px;
+  }
+  .featured-card p {
+    font-size: 11.5px;
+    max-width: none;
+  }
+  .wide-card h3 {
+    white-space: normal;
+  }
+  .wide-card p {
+    font-size: 11px;
+    max-width: none;
+  }
+
+  /* Featured products */
+  .showroom .card-content {
+    min-height: 0;
+  }
+}
+
+/* ---------- Very small phones (<=380px) ---------- */
+@media (max-width: 380px) {
+  .logo span {
+    letter-spacing: 0.5px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .slide h1 {
+    font-size: 30px;
+  }
+  .stats b {
+    font-size: 30px;
+  }
+  .category-grid .product-card {
+    height: 240px;
+    min-height: 240px;
+  }
+}
+
+
+/* =========================================================
+   CATEGORY CARDS — mobile/tablet fix
+   Text aur image ab overlap nahi karte: text upar, image neeche (stack)
+   Ye block file ke sabse neeche rahe.
+========================================================= */
+
+/* ---- Product cards: tablet + mobile (<=900px) ---- */
+@media (max-width: 900px) {
+  .category-grid .product-card:nth-child(n) {
+    height: auto !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+  }
+  .category-grid .product-card:nth-child(n) .category-icon {
+    margin-bottom: 8px;
+  }
+  .category-grid .product-card:nth-child(n) p {
+    font-size: 12px;
+    line-height: 1.5;
+    display: block !important;
+  }
+  .category-grid .product-card:nth-child(n) .product-image {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    height: 140px !important;
+    margin: 14px 0 10px;
+    z-index: 1;
+  }
+  .category-grid .product-card:nth-child(n) .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+  .category-grid .product-card:nth-child(n) .explore-link {
+    position: static !important;
+    margin-top: auto;
+    font-size: 12px;
+  }
+}
+
+/* ---- Featured + wide cards: mobile (<=600px) ---- */
+@media (max-width: 600px) {
+  .category-grid .featured-card,
+  .category-grid .wide-card:nth-child(n) {
+    height: auto !important;
+    min-height: 0 !important;
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .featured-card .card-content,
+  .wide-card-content {
+    width: 100% !important;
+    height: auto;
+  }
+  .featured-card h2 {
+    font-size: 26px;
+  }
+  .featured-card p {
+    max-width: none;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .wide-card p {
+    max-width: none;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .wide-card h3 {
+    font-size: 16px;
+  }
+
+  .featured-card .featured-image,
+  .category-grid .wide-card:nth-child(n) .wide-product-image {
+    position: relative !important;
+    inset: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    height: 190px !important;
+    margin-top: 14px;
+    z-index: 1;
+  }
+  .category-grid .wide-card:nth-child(n) .wide-product-image {
+    height: 160px !important;
+  }
+  .featured-image img,
+  .wide-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+  .explore-btn {
+    font-size: 12px;
+    padding: 9px 16px;
   }
 }

@@ -3,6 +3,25 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="Cooling &amp; Freezing Industry – multi-brand electronic showroom in Merta City, Nagar (Raj.). ACs, refrigerators, LED TVs, washing machines, kitchen appliances and furniture from Haier, Godrej, Daikin, Voltas, LG, Samsung and more." />
+    <meta name="theme-color" content="#ffffff" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ElectronicsStore",
+      "name": "Cooling & Freezing Industry",
+      "description": "Multi-brand electronic showroom for ACs, refrigerators, TVs, kitchen appliances and furniture.",
+      "telephone": "+919024605007",
+      "founder": "Mohan Rankawat",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Near Prince Talkies, Opp. HDFC Bank",
+        "addressLocality": "Merta City, Nagar",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
     <title>Cooling & Freezing Industry – Multi Brand Electronic Showroom, Nagar</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -11,32 +30,6 @@
 
     <link rel="stylesheet" href="style.css" />
 
-    <!-- Layout override: header 100% width, all sections max 1400px -->
-    <style>
-      header .wrap.nav {
-        max-width: 100%;
-        width: 100%;
-        padding-left: 40px;
-        padding-right: 40px;
-      }
-      main .wrap,
-      .brands-wrap,
-      .shop-category-section,
-      .showroom {
-        max-width: 1400px;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .drop a i, .pill i, .btn i, .bar a i { margin-right: 6px; }
-      .explore-btn i, .explore-link i, .product-card a i { margin-left: 6px; margin-right: 0; }
-      .explore-link i { margin-left: 0; margin-right: 6px; }
-      .sarrow { display: flex; align-items: center; justify-content: center; }
-      .slot i { font-size: 32px; display: block; margin-bottom: 6px; }
-      @media (max-width: 768px) {
-        header .wrap.nav { padding-left: 16px; padding-right: 16px; }
-      }
-    </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous"></script>
   </head>
@@ -97,6 +90,10 @@
         <a class="btn" style="padding: 9px 18px; font-size: 13px" href="tel:+919024605007">
           <i class="fa-solid fa-phone"></i> Call Now
         </a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false">
+          <span class="ic-open"><i class="fa-solid fa-bars"></i></span>
+          <span class="ic-close"><i class="fa-solid fa-xmark"></i></span>
+        </button>
       </div>
     </header>
 
@@ -178,7 +175,7 @@
         <div><b>1</b><span>Roof for Everything</span></div>
       </div>
 
-      <section id="about" style="padding-bottom:50px">
+      <section id="about" style="padding-bottom: 0">
         <div class="wrap">
           <div class="show" style="align-items: center">
             <div>
@@ -198,10 +195,10 @@
               </div>
             </div>
             <div class="gal">
-              <div class="slot" data-img="a1" style="background-image: url('./images/02_led_tv.png')"></div>
-              <div class="slot" data-img="a2" style="background-image: url('./images/eleimages.png')"></div>
-              <div class="slot" data-img="a3" style="background-image: url('./images/04_home_appliances.png')"></div>
-              <div class="slot" data-img="a4" style="background-image: url('./images/09_furniture_bedding.png')"></div>
+              <div class="gal-item" style="background-image: url('./images/02_led_tv.png')"></div>
+              <div class="gal-item" style="background-image: url('./images/eleimages.png')"></div>
+              <div class="gal-item" style="background-image: url('./images/04_home_appliances.png')"></div>
+              <div class="gal-item" style="background-image: url('./images/09_furniture_bedding.png')"></div>
             </div>
           </div>
         </div>
@@ -225,10 +222,10 @@
                 Coolers and Fans of every type — beat the heat with the best
                 brands.
               </p>
-              <a href="#" class="explore-btn">Explore Now <i class="fa-solid fa-arrow-right"></i></a>
+              <a href="#enquiry" class="explore-btn">Explore Now <i class="fa-solid fa-arrow-right"></i></a>
             </div>
             <div class="featured-image">
-              <img src="images/01_cooling_freezing.png" alt="Cooling and Freezing" />
+              <img loading="lazy" decoding="async" src="images/01_cooling_freezing.png" alt="Cooling and Freezing" />
             </div>
           </div>
 
@@ -237,8 +234,8 @@
             <div class="category-icon blue-icon"><i class="fa-solid fa-tv"></i></div>
             <h3>LED TV</h3>
             <p>Big screens, sharp picture</p>
-            <div class="product-image"><img src="images/02_led_tv.png" alt="LED TV" /></div>
-            <a href="#" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
+            <div class="product-image"><img loading="lazy" decoding="async" src="images/02_led_tv.png" alt="LED TV" /></div>
+            <a href="#enquiry" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
           </div>
 
           <!-- Mobiles -->
@@ -246,8 +243,8 @@
             <div class="category-icon green-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
             <h3>Mobiles</h3>
             <p>Latest smartphones</p>
-            <div class="product-image mobile-image"><img src="images/03_mobiles.png" alt="Mobiles" /></div>
-            <a href="#" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
+            <div class="product-image mobile-image"><img loading="lazy" decoding="async" src="images/03_mobiles.png" alt="Mobiles" /></div>
+            <a href="#enquiry" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
           </div>
 
           <!-- Home Appliances -->
@@ -260,8 +257,8 @@
               Flour Mill, Sewing<br />
               Machines (all types)
             </p>
-            <div class="product-image"><img src="images/04_home_appliances.png" alt="Home Appliances" /></div>
-            <a href="#" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
+            <div class="product-image"><img loading="lazy" decoding="async" src="images/04_home_appliances.png" alt="Home Appliances" /></div>
+            <a href="#enquiry" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
           </div>
 
           <!-- Kitchen -->
@@ -273,8 +270,8 @@
               Hand Blender, Microwave,<br />
               Cooker, Induction
             </p>
-            <div class="product-image"><img src="images/05_kitchen.png" alt="Kitchen Appliances" /></div>
-            <a href="#" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
+            <div class="product-image"><img loading="lazy" decoding="async" src="images/05_kitchen.png" alt="Kitchen Appliances" /></div>
+            <a href="#enquiry" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
           </div>
 
           <!-- Water -->
@@ -282,8 +279,8 @@
             <div class="category-icon water-icon"><i class="fa-solid fa-droplet"></i></div>
             <h3>Water</h3>
             <p>RO Purifier, Water Dispenser</p>
-            <div class="product-image water-image"><img src="images/06_water (1).png" alt="Water Purifier" /></div>
-            <a href="#" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
+            <div class="product-image water-image"><img loading="lazy" decoding="async" src="images/06_water%20(1).png" alt="Water Purifier" /></div>
+            <a href="#enquiry" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
           </div>
 
           <!-- Power -->
@@ -294,8 +291,8 @@
               Inverter Battery, Solar,<br />
               Stabilizer
             </p>
-            <div class="product-image power-image"><img src="images/07_power.png" alt="Power and Solar" /></div>
-            <a href="#" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
+            <div class="product-image power-image"><img loading="lazy" decoding="async" src="images/07_power.png" alt="Power and Solar" /></div>
+            <a href="#enquiry" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
           </div>
 
           <!-- Home Theatre -->
@@ -304,9 +301,9 @@
               <div class="category-icon purple-icon"><i class="fa-solid fa-headphones"></i></div>
               <h3>Home Theatre</h3>
               <p>Immersive sound for your living room</p>
-              <a href="#" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
+              <a href="#enquiry" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
             </div>
-            <div class="wide-product-image"><img src="images/08_home_theatre.png" alt="Home Theatre" /></div>
+            <div class="wide-product-image"><img loading="lazy" decoding="async" src="images/08_home_theatre.png" alt="Home Theatre" /></div>
           </div>
 
           <!-- Furniture & Bedding -->
@@ -318,20 +315,16 @@
                 Double Bed, Almari, Sofa Set, Mattress, Dressing Table, Bajot,
                 Dining Table, Chair, Pillow, Bedsheet
               </p>
-              <a href="#" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
+              <a href="#enquiry" class="explore-link"><i class="fa-solid fa-arrow-right"></i> Explore</a>
             </div>
             <div class="wide-product-image furniture-image">
-              <img src="images/09_furniture_bedding.png" alt="Furniture and Bedding" />
+              <img loading="lazy" decoding="async" src="images/09_furniture_bedding.png" alt="Furniture and Bedding" />
             </div>
           </div>
         </div>
       </section>
-      <!-- =====================================================
-     SECTION 1: SERVICES
-     Paste karo: "featured" section ke baad aur "why" section se pehle
-     (</section> of id="featured"  ->  yaha  ->  <section id="why">)
-====================================================== -->
-<section id="services" class="services-section">
+
+      <section id="services" class="services-section">
   <div class="wrap">
     <div class="head center">
       <div class="eyebrow">Our services</div>
@@ -367,7 +360,6 @@
   </div>
 </section>
 
-
       <section id="brands" class="brands-section">
         <div class="brands-wrap">
           <div class="brands-top">
@@ -386,18 +378,18 @@
 
           <div class="brand-box">
             <div class="brand-grid">
-              <div class="brand-card"><img src="./images/haier.svg" alt="Haier" /></div>
-              <div class="brand-card"><img src="./images/godrej.svg" alt="Godrej" /></div>
-              <div class="brand-card"><img src="./images/daikin.svg" alt="Daikin" /></div>
-              <div class="brand-card"><img src="./images/amstrad.svg" alt="Amstrad" /></div>
-              <div class="brand-card"><img src="./images/voltas.svg" alt="Voltas" /></div>
-              <div class="brand-card"><img src="./images/mitsubishi-electric.svg" alt="Mitsubishi Electric" /></div>
-              <div class="brand-card"><img src="./images/lg.svg" alt="LG" /></div>
-              <div class="brand-card"><img src="./images/samsung.svg" alt="Samsung" /></div>
-              <div class="brand-card"><img src="./images/ifb.svg" alt="IFB" /></div>
-              <div class="brand-card"><img src="./images/tcl.svg" alt="TCL" /></div>
-              <div class="brand-card"><img src="./images/hitachi.svg" alt="Hitachi" /></div>
-              <div class="brand-card"><img src="./images/adani.svg" alt="Adani" /></div>
+              <div class="brand-card"><img loading="lazy" decoding="async" src="./images/haier.svg" alt="Haier" /></div>
+              <div class="brand-card"><img loading="lazy" decoding="async" src="./images/godrej.svg" alt="Godrej" /></div>
+              <div class="brand-card"><img loading="lazy" decoding="async" src="./images/daikin.svg" alt="Daikin" /></div>
+              <div class="brand-card"><img loading="lazy" decoding="async" src="./images/amstrad.svg" alt="Amstrad" /></div>
+              <div class="brand-card"><img loading="lazy" decoding="async" src="./images/voltas.svg" alt="Voltas" /></div>
+              <div class="brand-card"><img loading="lazy" decoding="async" src="./images/mitsubishi-electric.svg" alt="Mitsubishi Electric" /></div>
+              <div class="brand-card"><img loading="lazy" decoding="async" src="./images/lg.svg" alt="LG" /></div>
+              <div class="brand-card"><img loading="lazy" decoding="async" src="./images/samsung.svg" alt="Samsung" /></div>
+              <div class="brand-card"><img loading="lazy" decoding="async" src="./images/ifb.svg" alt="IFB" /></div>
+              <div class="brand-card"><img loading="lazy" decoding="async" src="./images/tcl.svg" alt="TCL" /></div>
+              <div class="brand-card"><img loading="lazy" decoding="async" src="./images/hitachi.svg" alt="Hitachi" /></div>
+              <div class="brand-card"><img loading="lazy" decoding="async" src="./images/adani.svg" alt="Adani" /></div>
             </div>
           </div>
 
@@ -425,100 +417,80 @@
 
         <div class="product-grid">
           <article class="product-card">
-            <img src="./images/air-conditioner.jpg" alt="Air Conditioner" />
+            <img loading="lazy" decoding="async" src="./images/air-conditioner.jpg" alt="Air Conditioner" />
             <div class="card-content">
               <div class="icon"><i class="fa-solid fa-snowflake"></i></div>
               <div class="text">
                 <h2>Air Conditioner</h2>
                 <p>Split &amp; window ACs - Daikin, Voltas, LG, Hitachi</p>
-                <a href="#">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://wa.me/919024605007?text=I%20want%20to%20know%20about%20Air%20Conditioner" target="_blank" rel="noopener">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
 
           <article class="product-card">
-            <img src="./images/01_cooling_freezing.png" alt="Refrigerator and Deep Freezer" />
+            <img loading="lazy" decoding="async" src="./images/01_cooling_freezing.png" alt="Refrigerator and Deep Freezer" />
             <div class="card-content">
               <div class="icon"><i class="fa-solid fa-temperature-arrow-down"></i></div>
               <div class="text">
                 <h2>Refrigerator &amp; Deep Freezer</h2>
                 <p>Godrej, Haier, LG, Samsung</p>
-                <a href="#">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://wa.me/919024605007?text=I%20want%20to%20know%20about%20Refrigerator%20and%20Deep%20Freezer" target="_blank" rel="noopener">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
 
           <article class="product-card">
-            <img src="./images/02_led_tv.png" alt="LED TV" />
+            <img loading="lazy" decoding="async" src="./images/02_led_tv.png" alt="LED TV" />
             <div class="card-content">
               <div class="icon"><i class="fa-solid fa-tv"></i></div>
               <div class="text">
                 <h2>LED TV</h2>
                 <p>TCL, LG, Samsung, Haier</p>
-                <a href="#">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://wa.me/919024605007?text=I%20want%20to%20know%20about%20LED%20TV" target="_blank" rel="noopener">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
 
           <article class="product-card">
-            <img src="./images/washing-machine.jpg" alt="Washing Machine" />
+            <img loading="lazy" decoding="async" src="./images/washing-machine.jpg" alt="Washing Machine" />
             <div class="card-content">
               <div class="icon"><i class="fa-solid fa-jug-detergent"></i></div>
               <div class="text">
                 <h2>Washing Machine</h2>
                 <p>IFB, LG, Samsung, Haier</p>
-                <a href="#">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://wa.me/919024605007?text=I%20want%20to%20know%20about%20Washing%20Machine" target="_blank" rel="noopener">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
 
           <article class="product-card">
-            <img src="./images/06_water (1).png" alt="Coolers and Water Coolers" />
+            <img loading="lazy" decoding="async" src="./images/06_water%20(1).png" alt="Coolers and Water Coolers" />
             <div class="card-content">
               <div class="icon"><i class="fa-solid fa-droplet"></i></div>
               <div class="text">
                 <h2>Coolers &amp; Water Coolers</h2>
                 <p>Air coolers, water coolers, dispensers</p>
-                <a href="#">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://wa.me/919024605007?text=I%20want%20to%20know%20about%20Coolers%20and%20Water%20Coolers" target="_blank" rel="noopener">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
 
           <article class="product-card">
-            <img src="./images/09_furniture_bedding.png" alt="Sofa Sets and Furniture" />
+            <img loading="lazy" decoding="async" src="./images/09_furniture_bedding.png" alt="Sofa Sets and Furniture" />
             <div class="card-content">
               <div class="icon"><i class="fa-solid fa-couch"></i></div>
               <div class="text">
                 <h2>Sofa Sets &amp; Furniture</h2>
                 <p>Beds, almirah, dining tables, chairs</p>
-                <a href="#">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://wa.me/919024605007?text=I%20want%20to%20know%20about%20Sofa%20Sets%20and%20Furniture" target="_blank" rel="noopener">Enquire Now <i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
         </div>
       </section>
 
-
-
-
-<!-- =====================================================
-     SECTION 2: CUSTOMER REVIEWS
-     Paste karo: "showroom" (Step inside) section ke baad aur "enquiry" se pehle
-     (</section> of id="showroom"  ->  yaha  ->  <section id="enquiry">)
-====================================================== -->
-
-
-
-
-
-
-
-
-
-
-
-
-      <section id="why" style="padding-top: 50px">
+      <section id="why" style="padding-top: 0">
         <div class="wrap">
           <div class="head">
             <div class="eyebrow">Why choose us</div>
@@ -556,29 +528,73 @@
             <h2>Step <span>inside</span></h2>
           </div>
           <div class="show">
-            <!-- <div class="slot vid" data-video="1">
-              <div class="play"><i class="fa-solid fa-play"></i></div>
-              <small>Add showroom video</small>
-            </div> -->
-
-
-
-<div class="video-box">
-  <video id="showVideo" src="./images//video.mp4" preload="metadata" playsinline></video>
-  <div class="play" id="playBtn"><i class="fa-solid fa-play"></i></div>
-</div>
-
-
-            
+            <div class="video-box">
+              <video id="showVideo" src="./images/video.mp4" preload="metadata" playsinline></video>
+              <div class="play" id="playBtn" role="button" aria-label="Play showroom video"><i class="fa-solid fa-play"></i></div>
+            </div>
             <div class="gal">
-              <div class="slot" data-img="s1"><img src="./images//07_power.png" alt=""></div>
-              <div class="slot" data-img="s2"><img src="./images/09_furniture_bedding.png" alt=""></div>
-              <div class="slot" data-img="s3"><img src="./images//02_led_tv.png" alt=""></div>
-              <div class="slot" data-img="s4"><img src="./images//03_mobiles.png" alt=""></div>
+              <div class="gal-item"><img loading="lazy" decoding="async" src="./images/07_power.png" alt="Inverter and solar products" /></div>
+              <div class="gal-item"><img loading="lazy" decoding="async" src="./images/09_furniture_bedding.png" alt="Furniture and bedding display" /></div>
+              <div class="gal-item"><img loading="lazy" decoding="async" src="./images/02_led_tv.png" alt="LED TV display" /></div>
+              <div class="gal-item"><img loading="lazy" decoding="async" src="./images/03_mobiles.png" alt="Mobile phones display" /></div>
             </div>
           </div>
         </div>
       </section>
+
+      <section id="reviews" class="reviews-section" style="padding-top: 0">
+  <div class="wrap">
+    <div class="head center">
+      <div class="eyebrow">Customer reviews</div>
+      <h2>What our <span>customers say</span></h2>
+    </div>
+
+    <div class="review-grid">
+      <!-- NOTE: Ye sample text hai. Apne asli customers ke reviews se badal do -->
+      <article class="review-card">
+        <i class="fa-solid fa-quote-right quote-mark"></i>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p>Bought an AC here. Fair price, proper installation and the staff explained everything clearly.</p>
+        <div class="reviewer">
+          <span class="avatar">A</span>
+          <div><b>Customer Name</b><small>Merta City</small></div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <i class="fa-solid fa-quote-right quote-mark"></i>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p>So many brands in one shop. Got my fridge and TV from the same place at a good rate.</p>
+        <div class="reviewer">
+          <span class="avatar">R</span>
+          <div><b>Customer Name</b><small>Nagar</small></div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <i class="fa-solid fa-quote-right quote-mark"></i>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p>Honest advice and no pressure to buy. Even after purchase, they helped with the warranty.</p>
+        <div class="reviewer">
+          <span class="avatar">S</span>
+          <div><b>Customer Name</b><small>Merta City</small></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="review-cta">
+      <a class="btn o" href="https://share.google/Evjl4FVupm2mNwLQ0" target="_blank" rel="noopener">
+        <i class="fa-brands fa-google"></i> See all reviews on Google
+      </a>
+    </div>
+  </div>
+</section>
 
       <section id="enquiry" style="padding-top: 0">
         <div class="wrap enq">
@@ -665,7 +681,7 @@
             </div>
             <a
               class="btn"
-              href="https://share.google/Evjl4FVupm2mNwLQ0"
+              href="https://www.google.com/maps/search/?api=1&query=Prince+Talkies+Merta+City+Nagar+Rajasthan"
               target="_blank"
               rel="noopener"
             >
@@ -712,68 +728,9 @@
           </div>
         </div>
       </section>
-
-<section id="reviews" class="reviews-section" style="padding-top: 0">
-  <div class="wrap">
-    <div class="head center">
-      <div class="eyebrow">Customer reviews</div>
-      <h2>What our <span>customers say</span></h2>
-    </div>
-
-    <div class="review-grid">
-      <!-- NOTE: Ye sample text hai. Apne asli customers ke reviews se badal do -->
-      <article class="review-card">
-        <i class="fa-solid fa-quote-right quote-mark"></i>
-        <div class="stars">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-        </div>
-        <p>Bought an AC here. Fair price, proper installation and the staff explained everything clearly.</p>
-        <div class="reviewer">
-          <span class="avatar">A</span>
-          <div><b>Customer Name</b><small>Merta City</small></div>
-        </div>
-      </article>
-
-      <article class="review-card">
-        <i class="fa-solid fa-quote-right quote-mark"></i>
-        <div class="stars">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-        </div>
-        <p>So many brands in one shop. Got my fridge and TV from the same place at a good rate.</p>
-        <div class="reviewer">
-          <span class="avatar">R</span>
-          <div><b>Customer Name</b><small>Nagar</small></div>
-        </div>
-      </article>
-
-      <article class="review-card">
-        <i class="fa-solid fa-quote-right quote-mark"></i>
-        <div class="stars">
-          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-        </div>
-        <p>Honest advice and no pressure to buy. Even after purchase, they helped with the warranty.</p>
-        <div class="reviewer">
-          <span class="avatar">S</span>
-          <div><b>Customer Name</b><small>Merta City</small></div>
-        </div>
-      </article>
-    </div>
-
-    <div class="review-cta">
-      <a class="btn o" href="https://share.google/Evjl4FVupm2mNwLQ0" target="_blank" rel="noopener">
-        <i class="fa-brands fa-google"></i> See all reviews on Google
-      </a>
-    </div>
-  </div>
-</section>
-
-
-
     </main>
 
-    <!-- <footer>© 2026 Cooling &amp; Freezing Industry · Merta City, Nagar (Raj.)</footer> -->
-<!-- Purane <footer>...</footer> ki jagah ye paste karo -->
-<footer class="site-footer">
+    <footer class="site-footer">
   <div class="wrap footer-top">
 
     <!-- Brand -->
@@ -863,12 +820,45 @@
   </div>
 </footer>
 
-
     <div class="bar">
       <a href="tel:+919024605007"><i class="fa-solid fa-phone"></i> Call</a>
       <a href="https://wa.me/919024605007"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
     </div>
 
+    <script>
+      (function () {
+        var v = document.getElementById("showVideo");
+        var b = document.getElementById("playBtn");
+        if (!v || !b) return;
+        b.addEventListener("click", function (e) {
+          e.stopPropagation();
+          v.controls = true;
+          v.play();
+          b.style.display = "none";
+        });
+        v.addEventListener("ended", function () {
+          v.controls = false;
+          b.style.display = "grid";
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        var h = document.querySelector("header");
+        var b = document.getElementById("menuBtn");
+        if (!h || !b) return;
+        b.addEventListener("click", function () {
+          var open = h.classList.toggle("menu-open");
+          b.setAttribute("aria-expanded", open);
+        });
+        document.querySelectorAll(".navlinks a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            h.classList.remove("menu-open");
+            b.setAttribute("aria-expanded", "false");
+          });
+        });
+      })();
+    </script>
     <script src="app.js"></script>
   </body>
 </html>
