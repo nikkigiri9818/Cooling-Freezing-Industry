@@ -189,3 +189,38 @@
     vid.controls = false;
     btn.style.display = "grid";
   });
+
+
+
+
+      (function () {
+        var v = document.getElementById("showVideo");
+        var b = document.getElementById("playBtn");
+        if (!v || !b) return;
+        b.addEventListener("click", function (e) {
+          e.stopPropagation();
+          v.controls = true;
+          v.play();
+          b.style.display = "none";
+        });
+        v.addEventListener("ended", function () {
+          v.controls = false;
+          b.style.display = "grid";
+        });
+      })();
+    
+      (function () {
+        var h = document.querySelector("header");
+        var b = document.getElementById("menuBtn");
+        if (!h || !b) return;
+        b.addEventListener("click", function () {
+          var open = h.classList.toggle("menu-open");
+          b.setAttribute("aria-expanded", open);
+        });
+        document.querySelectorAll(".navlinks a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            h.classList.remove("menu-open");
+            b.setAttribute("aria-expanded", "false");
+          });
+        });
+      })();
