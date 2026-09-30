@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="114" viewBox="0 0 200 114">
+  <rect width="200" height="114" rx="18" fill="#071a3b"/>
+  <rect x="1" y="1" width="198" height="112" rx="17" fill="none" stroke="#1c72c9" stroke-opacity=".75"/>
+  <text x="100" y="57" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="bold" font-style="normal">TCL</text>
+</svg>

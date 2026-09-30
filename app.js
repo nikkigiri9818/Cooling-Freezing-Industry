@@ -172,3 +172,20 @@
           "_blank",
         );
       }
+
+
+      // video add here
+
+       const vid = document.getElementById("showVideo");
+  const btn = document.getElementById("playBtn");
+
+  btn.addEventListener("click", () => {
+    vid.controls = true;
+    vid.play();
+    btn.style.display = "none";
+  });
+
+  vid.addEventListener("ended", () => {
+    vid.controls = false;
+    btn.style.display = "grid";
+  });
