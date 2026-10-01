@@ -200,6 +200,7 @@
         b.addEventListener("click", function (e) {
           e.stopPropagation();
           v.controls = true;
+          
           v.play();
           b.style.display = "none";
         });
